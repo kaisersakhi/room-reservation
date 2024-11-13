@@ -3,10 +3,10 @@ testdata_dir = "testdata"
 tmp_dir = "tmp"
 
 [build]
-  args_bin = ["--port=8080", "--env=development"]
+  args_bin = ["--port=4000", "--env=development"]
   bin = "./tmp/main"
   # cmd = "go build -o ./tmp/main ./cmd/room-reservation"
-  cmd = "dlv debug ./cmd/room-reservation --headless --listen=:2345 --api-version=2 --log"
+  cmd = "dlv debug ./cmd/room-reservation/main.go --headless --listen=:2345 --api-version=2 --log"
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor", "testdata"]
   exclude_file = []

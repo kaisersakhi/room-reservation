@@ -2,12 +2,14 @@ package config
 
 import (
 	"errors"
+	"html/template"
 	"strconv"
 )
 
 type AppConfig struct {
-	env string
-	port string
+	env           string
+	port          string
+	templateCache map[string]*template.Template
 }
 
 func NewAppConfig() *AppConfig {
@@ -29,7 +31,7 @@ func (a *AppConfig) IsEnvDev() bool {
 }
 
 func (a *AppConfig) SetPort(p string) error {
-	_ , err := strconv.Atoi(p)
+	_, err := strconv.Atoi(p)
 
 	if err != nil {
 		return err
@@ -42,4 +44,12 @@ func (a *AppConfig) SetPort(p string) error {
 
 func (a *AppConfig) GetPort() string {
 	return a.port
+}
+
+func (a *AppConfig) SetTemplateCache(tc map[string]*template.Template) {
+	a.templateCache = tc
+}
+
+func (a *AppConfig) GetTemplateCache() map[string]*template.Template {
+	return a.templateCache
 }

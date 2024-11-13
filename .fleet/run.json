@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "go",
+            "name": "Go configuration",
+            "goExecPath": "~/go/bin/air",
+            "buildParams": [
+                "$PROJECT_DIR$/cmd/room-reservation/main.go"
+            ],
+        },
+    ]
+}

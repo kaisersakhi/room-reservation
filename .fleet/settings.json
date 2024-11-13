@@ -1,0 +1,8 @@
+{
+    "toolchains": [],
+    "editor.formatOnSave": true,
+    "prettier.mode": "Enabled",
+    "prettier.applicableFilesGlob": "{**/*,*}.{js,ts,jsx,tsx,go,html}",
+    "nodejs.editor.formatOnSave.eslint.mode": "Auto",
+    "java.debugger.reloadClassesAfterCompilation": "Ask"
+}
