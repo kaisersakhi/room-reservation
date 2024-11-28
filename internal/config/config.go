@@ -7,9 +7,10 @@ import (
 )
 
 type AppConfig struct {
-	env           string
-	port          string
-	templateCache map[string]*template.Template
+	env                    string
+	port                   string
+	isTemplateCacheEnabled bool
+	templateCache          map[string]*template.Template
 }
 
 func NewAppConfig() *AppConfig {
@@ -44,6 +45,18 @@ func (a *AppConfig) SetPort(p string) error {
 
 func (a *AppConfig) GetPort() string {
 	return a.port
+}
+
+func (a *AppConfig) EnableTemplateCache() {
+	a.isTemplateCacheEnabled = true
+}
+
+func (a *AppConfig) DisableTemplateCache() {
+	a.isTemplateCacheEnabled = false
+}
+
+func (a *AppConfig) IsTemplateCacheEnabled() bool {
+	return a.isTemplateCacheEnabled
 }
 
 func (a *AppConfig) SetTemplateCache(tc map[string]*template.Template) {

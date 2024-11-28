@@ -12,8 +12,10 @@ import (
 
 func main() {
 	app := config.NewAppConfig()
+
 	SetPortAndEnv(app)
 	SetTemplateCache(app)
+	render.NewRenderer(app)
 
 	server := &http.Server{
 		Addr:    ":" + app.GetPort(),
