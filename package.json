@@ -4,7 +4,7 @@
   "description": "Simple room reservation app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "css": "npx tailwindcss -i ./web/static/css/tailwind_input.css -o ./web/static/css/tailwind_output.css --watch"
   },
   "author": "Kaiser Sakhi",
   "license": "MIT",

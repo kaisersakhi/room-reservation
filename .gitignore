@@ -4,3 +4,4 @@ tmp
 __*
 .DS_Store
 node_modules
+web/static/css/tailwind_output.css
