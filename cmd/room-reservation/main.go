@@ -23,8 +23,6 @@ func main() {
 	SetTemplateCache(app)
 	render.NewRenderer(app)
 
-
-
 	server := &http.Server{
 		Addr:    ":" + app.GetPort(),
 		Handler: routes.Routes(app),
@@ -32,4 +30,3 @@ func main() {
 
 	log.Fatal("Failed to start the server : ", server.ListenAndServe())
 }
-
