@@ -38,10 +38,16 @@ func Render(w http.ResponseWriter, templateName string) {
 
 	buf := new(bytes.Buffer)
 
-	err = tmpl.Execute(buf, nil)
+	err = tmpl.Execute(buf, "")
 
 	if err != nil {
 		log.Println("failed to excute data on templates", err)
+	}
+
+	_, err = buf.WriteTo(w)
+
+	if err != nil {
+		log.Println(err)
 	}
 }
 
@@ -50,7 +56,7 @@ func BuildTemplateCache() (map[string]*template.Template, error) {
 
 	cache := map[string]*template.Template{}
 
-	htmlFiles, err := filepath.Glob("../../templates/*.html")
+	htmlFiles, err := filepath.Glob("web/templates/*.html")
 
 	if err != nil {
 		return nil, err
@@ -65,14 +71,14 @@ func BuildTemplateCache() (map[string]*template.Template, error) {
 			break
 		}
 
-		layoutFiles, err := filepath.Glob("../../templates/*.layout.html")
+		layoutFiles, err := filepath.Glob("web/templates/*.layout.html")
 
 		if err != nil {
 			break
 		}
 
 		if len(layoutFiles) >= 1 {
-			templateSet, err = templateSet.ParseGlob("../../templates/*.layout.html")
+			templateSet, err = templateSet.ParseGlob("web/templates/*.layout.html")
 
 			if err != nil {
 				break
