@@ -4,6 +4,8 @@ import (
 	"errors"
 	"html/template"
 	"strconv"
+
+	"github.com/alexedwards/scs/v2"
 )
 
 type AppConfig struct {
@@ -11,6 +13,7 @@ type AppConfig struct {
 	port                   string
 	isTemplateCacheEnabled bool
 	templateCache          map[string]*template.Template
+	SessionManager *scs.SessionManager
 }
 
 func NewAppConfig() *AppConfig {
